@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.recorder.demo">
+
+    <!--拥有同一个User id的多个APK可以配置成运行在同一个进程中,把程序的UID配成android.uid.system,可以让程序运行在系统进程中,拥有系统权限-->
+    <!--android:sharedUserId="android.uid.system"-->
+    <!--coreApp是android在bootmode下系统启动的最小子集,在这个模式下,有一组最少的,必须的app需要启动-->
+    <!--coreApp="true"-->
+
+
+    <!--    gesture_start -->
+    <!--拨打电话; 允许程序从非系统拨号器里输入电话号码-->
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.READ_CALL_LOG" />
+    <uses-permission android:name="android.permission.WRITE_CALL_LOG" />
+    <uses-permission android:name="android.permission.WRITE_CONTACTS" />
+    <!--读写系统设置; 允许读写系统设置项-->
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <!--唤醒锁定; 允许程序在手机屏幕关闭后后台进程仍然运行-->
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <!--获取任务信息; 允许程序获取当前或最近运行的应用-->
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <!--禁用键盘锁; 允许程序禁用键盘锁-->
+    <uses-permission android:name="android.permission.DISABLE_KEYGUARD" />
+    <!--开机自动允许; 允许程序开机自动运行-->
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <!--    gesture_end -->
+
+    <!--拍照权限; 允许访问摄像头进行拍照-->
+    <uses-permission android:name="android.permission.CAMERA" />
+    <!--挂载文件系统; 挂载、反挂载外部文件系统-->
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <!--写入外部存储; 允许程序写入外部存储，如SD卡上写文件-->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <!--使用振动; 允许振动-->
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <!--允许程序连接配对过的蓝牙设备-->
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <!--允许程序进行发现和配对新的蓝牙设备-->
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <!--获取WiFi状态; 获取当前WiFi接入的状态以及WLAN热点的信息-->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <!-- 显示系统窗口 -->
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="common.debug.broadcast.permission" />
+
+    <!--required为true:应用只能在支持BLE的设备上安装运行;required为false:Android设备均可正常安装运行-->
+    <uses-feature
+        android:name="android.hardware.bluetooth_le"
+        android:required="false" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <service android:name=".ScreenRecordService"/>
+    </application>
+
+</manifest>

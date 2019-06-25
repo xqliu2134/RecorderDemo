@@ -1,0 +1,14 @@
+*.iml
+.gradle
+/local.properties
+/.idea/workspace.xml
+/.idea/libraries
+.DS_Store
+/build
+/captures
+.externalNativeBuild
+.idea/misc.xml
+.idea/
+FlycoTabLayout_Lib/FlycoTabLayout_Lib.iml
+app/app.iml
+local.properties
